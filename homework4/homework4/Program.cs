@@ -19,13 +19,11 @@ namespace homework4
             b = tmp;
 
         }
-
-    
         static void Main(string[] args)
         {
     
             int[] array1 = new int[]  {5, 4, 1, 3, 9};
-             Console.WriteLine("[{0}]", string.Join(", ", array1));
+            Console.WriteLine("[{0}]", string.Join(", ", array1));
             int tmp = 0;         
             for (int i=1; i<array1.Length; i++ )
             {
