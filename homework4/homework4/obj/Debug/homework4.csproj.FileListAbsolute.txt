@@ -4,3 +4,9 @@ D:\vet\sharp\homework4\homework4\homework4\bin\Debug\homework4.pdb
 D:\vet\sharp\homework4\homework4\homework4\obj\Debug\homework4.csprojResolveAssemblyReference.cache
 D:\vet\sharp\homework4\homework4\homework4\obj\Debug\homework4.exe
 D:\vet\sharp\homework4\homework4\homework4\obj\Debug\homework4.pdb
+D:\Sharp\homework4\homework4\homework4\bin\Debug\homework4.exe.config
+D:\Sharp\homework4\homework4\homework4\obj\Debug\homework4.exe
+D:\Sharp\homework4\homework4\homework4\obj\Debug\homework4.pdb
+D:\Sharp\homework4\homework4\homework4\bin\Debug\homework4.exe
+D:\Sharp\homework4\homework4\homework4\bin\Debug\homework4.pdb
+D:\Sharp\homework4\homework4\homework4\obj\Debug\homework4.csprojResolveAssemblyReference.cache
