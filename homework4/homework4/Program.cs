@@ -10,7 +10,7 @@ namespace homework4
     {
         
         // swap method;
-        /*
+        
         public static void SWAP(int a, int b)
         {
             int tmp = 0;
@@ -20,7 +20,7 @@ namespace homework4
 
         }
 
-    */
+    
         static void Main(string[] args)
         {
     
@@ -33,21 +33,16 @@ namespace homework4
                 {
                     if (array1[j] < array1[j-1])
                     {
-
+                        //SWAP(array1[j-1], array1[j]); 
+                        
                         tmp = array1[j];
                         array1[j] = array1[j - 1];
                         array1[j - 1] = tmp;
                       }
-                    Console.WriteLine(array1[j]);
-                    Console.WriteLine(array1[j - 1]);
-
                 }
 
             }
             Console.WriteLine("[{0}]", string.Join(", ", array1));
-            
-        //    SWAP(6, 5);
-        
             Console.ReadLine();
         }
     }
