@@ -72,7 +72,6 @@ namespace homework4
             Console.WriteLine("Enter the size of an array");
             while ((!int.TryParse(Console.ReadLine(), out size)) || size == 0)
             {
-                Console.WriteLine("this is BUKWA or 0");
                 Console.WriteLine("Try again..");
             }
             Console.WriteLine("you selected: " + size + " type each element and press enter.");
@@ -80,7 +79,6 @@ namespace homework4
             int[] array3 = new int[size];
             for (int j = 0; j < size; j++)
             {
-                // array1[j] = Convert.ToInt32(Console.ReadLine());
                 while ((!Int32.TryParse(Console.ReadLine(), out array3[j])) || array3[j] < 0)
                 {
                     Console.WriteLine("Try again..");
