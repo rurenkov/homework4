@@ -19,19 +19,20 @@ namespace homework4
             b = tmp;
 
         }
+
         static void Main(string[] args)
         {
-    
-            int[] array1 = new int[]  {5, 4, 1, 9, 1};
+
+            int[] array1 = new int[] { 5, 4, 1, 9, 1 };
             Console.WriteLine("[{0}]", string.Join(", ", array1));
 
-            for (int i=1; i<array1.Length; i++ )
+            for (int i = 1; i < array1.Length; i++)
             {
                 for (int j = 1; j < array1.Length; j++)
                 {
-                    if (array1[j] < array1[j-1])
+                    if (array1[j] < array1[j - 1])
                     {
-                        SWAP(ref array1[j-1],ref array1[j]); 
+                        SWAP(ref array1[j - 1], ref array1[j]);
                     }
                 }
 
@@ -49,7 +50,7 @@ namespace homework4
                     if (array2[j] < array2[j - 1])
                     {
                         SWAP(ref array2[j - 1], ref array2[j]);
-                        
+
                         j--;
                     }
                 }
@@ -68,27 +69,65 @@ namespace homework4
              Peek – get data from stack without pop
               */
 
-            int size = 0;
-            Console.WriteLine("Enter the size of an array");
-            while ((!int.TryParse(Console.ReadLine(), out size)) || size == 0)
+                
+            int choise = 0;
+            int Stacksize= 0;
+            
+            // if selected 1 , starting to add data to stack
+
+            // making selection of tasks
+            Console.WriteLine("Push: press 1, Pop: press 2. \n");
+            while (!int.TryParse(Console.ReadLine(), out choise))
             {
                 Console.WriteLine("Try again..");
             }
-            Console.WriteLine("you selected: " + size + " type each element and press enter.");
+          
 
-            int[] array3 = new int[size];
-            for (int j = 0; j < size; j++)
-            {
-                while ((!Int32.TryParse(Console.ReadLine(), out array3[j])) || array3[j] < 0)
+            switch (choise)
                 {
-                    Console.WriteLine("Try again..");
-                }
-            }
-            //verify what we have in array
-            Console.WriteLine("[{0}]", string.Join(", ", array3));
+                 case 1:
+
+                     Console.WriteLine(Stacksize);       //debug write size of array
+                        Console.WriteLine("Enter the size of an stack");
+
+                    while ((!int.TryParse(Console.ReadLine(), out Stacksize)) || Stacksize == 0)
+                        {
+                            Console.WriteLine("Try again..");
+                        }
+                        Console.WriteLine("SIze of Stack is: " + Stacksize + "\n");
+                    int[] array3 = new int[Stacksize];
+
+                    for (int j = 0; j < Stacksize; j++)
+                    {
+                        Console.WriteLine(" type " + (j) + " element and press enter");
+                            while (!int.TryParse(Console.ReadLine(), out array3[j]))
+                            {
+                                Console.WriteLine("Try again..");
+                            }
+                        }
+                        //verify what we have in array
+                        Console.WriteLine("[{0}]", string.Join(", ", array3));
+                        break;
+
+                    case 2:
+
+
+                        Console.WriteLine("stack size is " + Stacksize);       //debug write size of array
+                        break;
+               
+                //verify if empty.
 
 
 
+
+                default:
+                    Console.WriteLine("Invalid selection.");
+                Console.WriteLine(Stacksize);
+                break;
+             }
+
+           
+            //Console.WriteLine("POP: press", string.Join(", ", array3));
 
             Console.ReadLine();
         }
