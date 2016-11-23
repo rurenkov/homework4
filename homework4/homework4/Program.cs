@@ -8,9 +8,9 @@ namespace homework4
 {
     class Program
     {
-        
+        //*******************************************************//
         // swap method;
-        
+        //*******************************************************//
         public static void SWAP(ref int a, ref int b)
         {
             int tmp = 0;
@@ -19,10 +19,26 @@ namespace homework4
             b = tmp;
 
         }
+        //*******************************************************//
+        //parce method;
+        //*******************************************************//
+        public static void ParceD(ref int d)
+            {
+             while (!int.TryParse(Console.ReadLine(), out d))
+                {
+                Console.WriteLine("Try again..");
+                 }
+            }
+
+
 
         static void Main(string[] args)
         {
-
+            //*******************************************************//
+            // BUBLE SORTING
+            //*******************************************************//
+            Console.WriteLine("************************");
+            Console.WriteLine("******buble************");
             int[] array1 = new int[] { 5, 4, 1, 9, 1 };
             Console.WriteLine("[{0}]", string.Join(", ", array1));
 
@@ -38,6 +54,11 @@ namespace homework4
 
             }
             Console.WriteLine("[{0}]", string.Join(", ", array1));
+
+            //*******************************************************//
+            // INSERTING SORT
+            //*******************************************************//
+
             Console.WriteLine("************************");
             Console.WriteLine("******insert************");
 
@@ -54,12 +75,16 @@ namespace homework4
                         j--;
                     }
                 }
-
             }
-
             Console.WriteLine("[{0}]", string.Join(", ", array2));
+
+
             Console.WriteLine("************************");
             Console.WriteLine("*******stack************");
+
+            //*******************************************************//
+            // STACK
+            //*******************************************************//
 
             /*
              Push – push data on stack
@@ -69,66 +94,55 @@ namespace homework4
              Peek – get data from stack without pop
               */
 
-                
+
             int choise = 0;
-            int Stacksize= 0;
-            
-            // if selected 1 , starting to add data to stack
+            int Stacksize = 0;
+            int top = 0;
 
-            // making selection of tasks
-            Console.WriteLine("Push: press 1, Pop: press 2. \n");
-            while (!int.TryParse(Console.ReadLine(), out choise))
+            Console.WriteLine("Enter the size of an stack");
+            ParceD(ref Stacksize);                  //parce value of size
+            Console.WriteLine("SIze of Stack is: " + Stacksize + "\n");
+            // creating array
+            int[] array3 = new int[Stacksize];
+            int NumbOfAdd = 0;
+            Console.WriteLine("[{0}]", string.Join(", ", array3));
+
+        
+                Console.WriteLine("Push: press 1, Pop: press 2. \n");
+                ParceD(ref choise);
+            if (choise == 1)
             {
-                Console.WriteLine("Try again..");
-            }
-          
+                // for (int i = 0; i < Stacksize; i++)
+                //{
 
-            switch (choise)
+                Console.WriteLine("how many values you want to add\n");
+                ParceD(ref NumbOfAdd);                         //parce  value
+
+                for (int j = 0; j < NumbOfAdd; j++)
                 {
-                 case 1:
-
-                     Console.WriteLine(Stacksize);       //debug write size of array
-                        Console.WriteLine("Enter the size of an stack");
-
-                    while ((!int.TryParse(Console.ReadLine(), out Stacksize)) || Stacksize == 0)
-                        {
-                            Console.WriteLine("Try again..");
+                    Console.WriteLine(" type " + (j) + " element and press enter");
+                    ParceD(ref (array3[j]));            //parce value of array element
+                    top = j;
+                    //int free = Stacksize -
                         }
-                        Console.WriteLine("SIze of Stack is: " + Stacksize + "\n");
-                    int[] array3 = new int[Stacksize];
+                Console.WriteLine(" top: " + top);
+                Console.WriteLine("[{0}]", string.Join(", ", array3));
 
-                    for (int j = 0; j < Stacksize; j++)
-                    {
-                        Console.WriteLine(" type " + (j) + " element and press enter");
-                            while (!int.TryParse(Console.ReadLine(), out array3[j]))
-                            {
-                                Console.WriteLine("Try again..");
-                            }
-                        }
-                        //verify what we have in array
-                        Console.WriteLine("[{0}]", string.Join(", ", array3));
-                        break;
+            }        
+             else
+            {
+                Console.WriteLine("not implemented");
+                               
+            }
+                    
+              
 
-                    case 2:
-
-
-                        Console.WriteLine("stack size is " + Stacksize);       //debug write size of array
-                        break;
-               
-                //verify if empty.
-
-
-
-
-                default:
-                    Console.WriteLine("Invalid selection.");
-                Console.WriteLine(Stacksize);
-                break;
-             }
+            
+             
 
            
             //Console.WriteLine("POP: press", string.Join(", ", array3));
-
+            
             Console.ReadLine();
         }
     }
