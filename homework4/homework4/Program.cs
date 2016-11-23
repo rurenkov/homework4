@@ -8,10 +8,34 @@ namespace homework4
 {
     class Program
     {
+
+  
+
+        //static int add = 0;
+
         //*******************************************************//
-        // swap method;
+        // push method;
         //*******************************************************//
-        public static void SWAP(ref int a, ref int b)
+        public static void PUSH(int add, int Stacksize)
+        {
+
+            int top = 0;
+            int[] array3 = new int[Stacksize];
+            if (top != Stacksize)
+            {
+                array3[top] = add;
+                top++;
+            }
+
+            Console.WriteLine("[{0}]", string.Join(", ", array3));
+            Console.WriteLine(top);
+        }
+
+
+//*******************************************************//
+// swap method;
+//*******************************************************//
+public static void SWAP(ref int a, ref int b)
         {
             int tmp = 0;
             tmp = a;
@@ -51,7 +75,6 @@ namespace homework4
                         SWAP(ref array1[j - 1], ref array1[j]);
                     }
                 }
-
             }
             Console.WriteLine("[{0}]", string.Join(", ", array1));
 
@@ -94,53 +117,27 @@ namespace homework4
              Peek – get data from stack without pop
               */
 
-            int choise = 0;
             int Stacksize = 0;
-            int top = 0;
+            int add = 0;
+
+
 
             Console.WriteLine("Enter the size of an stack");
-            ParceD(ref Stacksize);                  //parce value of size
-            Console.WriteLine("SIze of Stack is: " + Stacksize + "\n");
-            // creating array
-            int[] array3 = new int[Stacksize];
-            int NumbOfAdd = 0;
+            ParceD(ref Stacksize);                  // parce size of stack
+            int[] array3 = new int[Stacksize];      // define stack
             Console.WriteLine("[{0}]", string.Join(", ", array3));
 
-        
-                Console.WriteLine("Push: press 1, Pop: press 2. \n");
-                ParceD(ref choise);
-            if (choise == 1)
-            {
-                // for (int i = 0; i < Stacksize; i++)
-                //{
-                Console.WriteLine("how many values you want to add\n");
-                ParceD(ref NumbOfAdd);                         //parce  value
+            Console.WriteLine("Enter what you want to add"); 
+            ParceD(ref add);                        //parce value which needs to be added
+            Console.WriteLine(add);
+            PUSH(add,Stacksize);                    // push parced value and size of stack to push method
+ 
 
-                for (int j = 0; j < NumbOfAdd; j++)
-                {
-                    Console.WriteLine(" type " + (j) + " element and press enter");
-                    ParceD(ref (array3[j]));            //parce value of array element
-                    top = j;
-                    //int free = Stacksize -
-                        }
-                Console.WriteLine(" top: " + top);
-                Console.WriteLine("[{0}]", string.Join(", ", array3));
 
-            }        
-             else
-            {
-                Console.WriteLine("not implemented");
-                               
-            }
-                    
-              
 
-            
-             
 
-           
-            //Console.WriteLine("POP: press", string.Join(", ", array3));
-            
+
+
             Console.ReadLine();
         }
     }
