@@ -83,7 +83,7 @@ namespace homework4
             Console.WriteLine("*******stack************");
 
             //*******************************************************//
-            // STACK
+            // STACKcc
             //*******************************************************//
 
             /*
@@ -93,7 +93,6 @@ namespace homework4
              IsFull – is there stack full?
              Peek – get data from stack without pop
               */
-
 
             int choise = 0;
             int Stacksize = 0;
@@ -114,7 +113,6 @@ namespace homework4
             {
                 // for (int i = 0; i < Stacksize; i++)
                 //{
-
                 Console.WriteLine("how many values you want to add\n");
                 ParceD(ref NumbOfAdd);                         //parce  value
 
