@@ -32,7 +32,6 @@ public static void SWAP(ref int a, ref int b)
                  }
             }
 
-
          //*******************************************************//
         // push method;
         //*******************************************************//
@@ -44,7 +43,6 @@ public static void SWAP(ref int a, ref int b)
                 arrayT[top] = add;
                 top++;
             }
-            Console.WriteLine(top);
         }
         //*******************************************************//
         // EMPTY;
@@ -74,25 +72,23 @@ public static void SWAP(ref int a, ref int b)
             return true;
         }
 
-
         //*******************************************************//
         // pop method;
         //*******************************************************//
-        public static void POP(ref int toPop, ref int Stacksize2, ref int top, ref int [] arrayP)
+        public static void POPM(ref int top, ref int [] arrayP)
         {
 
             if (top > 0)
             {
-                arrayP[top] = toPop;
+                arrayP[top-1] = 0;
                 top--;
             }
           
         }
-
         //*******************************************************//
         // peek method;
         //*******************************************************//
-        public static void PEEK(ref int toPeek, ref int Stacksize2, ref int top, ref int[] arrayP)
+        public static void PEEK(ref int toPeek, ref int top, ref int[] arrayP)
         {
 
             if (top > 0)
@@ -143,13 +139,11 @@ public static void SWAP(ref int a, ref int b)
                     if (array2[j] < array2[j - 1])
                     {
                         SWAP(ref array2[j - 1], ref array2[j]);
-
                         j--;
                     }
                 }
             }
             Console.WriteLine("[{0}]", string.Join(", ", array2));
-
 
             Console.WriteLine("************************");
             Console.WriteLine("*******stack************");
@@ -169,7 +163,6 @@ public static void SWAP(ref int a, ref int b)
             int Stacksize = 0;
             int add = 0;
             int top = 0;
-            int toPop = 0;
             int toPeek = 0;
 
 
@@ -180,19 +173,28 @@ public static void SWAP(ref int a, ref int b)
             ParceD(ref Stacksize);                  // parce size of stack
             int[] array3 = new int[Stacksize];      // define stack
 
-
             Console.WriteLine("[{0}]", string.Join(", ", array3));
-            Console.WriteLine("Enter what you want to add"); 
+            Console.WriteLine("Enter what you want to add \n"); 
             ParceD(ref add);                        //parce value which needs to be added
-            Console.WriteLine(add);
+            Console.WriteLine("_________________________");
+
             PUSH(ref add,ref Stacksize, ref top, ref array3);                    // push parced value and size of stack to push method
-            
-
-
             Console.WriteLine("[{0}]", string.Join(", ", array3));
-            Console.WriteLine(top);
+            Console.WriteLine(top + " Top after PUSH");
 
-                        
+            POPM(ref top, ref array3);
+            Console.WriteLine(top + " TOP after pop");
+            Console.WriteLine("[{0}]", string.Join(", ", array3));
+
+            PUSH(ref add, ref Stacksize, ref top, ref array3);                    // push parced value and size of stack to push method
+            Console.WriteLine(top + " Top PUsh after Popp");
+            Console.WriteLine("[{0}]", string.Join(", ", array3));
+
+
+            PEEK(ref toPeek, ref top, ref array3);
+            Console.WriteLine(top + " Top after peek");
+            Console.WriteLine("[{0}]", string.Join(", ", array3));
+
             Console.ReadLine();
         }
     }
