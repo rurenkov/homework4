@@ -45,7 +45,7 @@ public static void SWAP(ref int a, ref int b)
             }
         }
         //*******************************************************//
-        // EMPTY;
+        // EMPTY stack;
         //*******************************************************//
 
         public bool IsEmpty(ref int top)
@@ -59,7 +59,7 @@ public static void SWAP(ref int a, ref int b)
             return true;
         }
         //*******************************************************//
-        // is FULL;
+        // is FULL  stack;
         //*******************************************************//
 
         public bool IsFull(ref int StackSize, ref int top)
@@ -88,15 +88,45 @@ public static void SWAP(ref int a, ref int b)
         //*******************************************************//
         // peek method;
         //*******************************************************//
-        public static void PEEK(ref int toPeek, ref int top, ref int[] arrayP)
+        public static void PEEK(ref int top, ref int[] arrayP)
         {
 
             if (top > 0)
             {
-                arrayP[top] = toPeek;
-                
+                arrayP[top-1]= arrayP[top - 1];
             }
 
+        }
+        //*******************************************************//
+        // enqueue method;
+        //*******************************************************//
+        public static void ENQUEUE(ref int put, ref int Buffsize,ref int head, ref int[] buffer)
+        {
+            if (head<Buffsize)
+            {
+                buffer[head] = put;
+                head++;
+            }
+            else if (head == Buffsize)
+            {
+                head = 0;
+                buffer[head] = put;
+                head++;
+            }
+        }
+
+        //*******************************************************//
+        // DEqueue method;
+        //*******************************************************//
+
+        public static void DEQUEUE(ref int tail, ref int Buffsize, ref int[] buffer)
+
+        {
+            if (tail < Buffsize)
+            {
+                buffer[tail] = 0;
+                tail++;
+            }
         }
 
 
@@ -152,48 +182,63 @@ public static void SWAP(ref int a, ref int b)
             // STACKcc
             //*******************************************************//
 
-            /*
-             Push – push data on stack
-             Pop – pop data from stack
-             IsEmpty – is there any data in stack?
-             IsFull – is there stack full?
-             Peek – get data from stack without pop
-              */
-
-            int Stacksize = 0;
-            int add = 0;
-            int top = 0;
-            int toPeek = 0;
-
-
-
-
-
+            
+            int Buffsize = 0;
+            //int add = 0;
+           // int top = 0;
+            int put = 0;
+            int head = 0;
+           // int tail = 0;
+            
             Console.WriteLine("Enter the size of an stack");
-            ParceD(ref Stacksize);                  // parce size of stack
-            int[] array3 = new int[Stacksize];      // define stack
+            ParceD(ref Buffsize);                  // parce size of stack
+            int[] buffer = new int[Buffsize];      // define stack
+            Console.WriteLine("[{0}]", string.Join(", ", buffer));
 
-            Console.WriteLine("[{0}]", string.Join(", ", array3));
-            Console.WriteLine("Enter what you want to add \n"); 
-            ParceD(ref add);                        //parce value which needs to be added
-            Console.WriteLine("_________________________");
+            
 
-            PUSH(ref add,ref Stacksize, ref top, ref array3);                    // push parced value and size of stack to push method
-            Console.WriteLine("[{0}]", string.Join(", ", array3));
-            Console.WriteLine(top + " Top after PUSH");
+            for (int i=0; i<Buffsize; i++)
+            {
+                
+                Console.WriteLine("Enter what you want to add \n");
+                ParceD(ref put);                        //parce value which needs to be added
+                
+                ENQUEUE(ref put, ref Buffsize, ref head, ref buffer);
+                Console.WriteLine("[{0}]", string.Join(", ", buffer));
+            }
 
-            POPM(ref top, ref array3);
-            Console.WriteLine(top + " TOP after pop");
-            Console.WriteLine("[{0}]", string.Join(", ", array3));
-
-            PUSH(ref add, ref Stacksize, ref top, ref array3);                    // push parced value and size of stack to push method
-            Console.WriteLine(top + " Top PUsh after Popp");
-            Console.WriteLine("[{0}]", string.Join(", ", array3));
+            Console.WriteLine("[{0}]", string.Join(", ", buffer));
 
 
-            PEEK(ref toPeek, ref top, ref array3);
-            Console.WriteLine(top + " Top after peek");
-            Console.WriteLine("[{0}]", string.Join(", ", array3));
+
+            //*************************************************************
+
+            //     Console.WriteLine("************************");
+            //   Console.WriteLine("*******Circular Queue************");
+
+
+            //*********Debug Writes************************************
+            /*      
+                  PUSH(ref add,ref Stacksize, ref top, ref array3);                    // push parced value and size of stack to push method
+                  Console.WriteLine("[{0}]", string.Join(", ", array3));
+                  Console.WriteLine(top + " Top after PUSH");
+
+                  POPM(ref top, ref array3);                                           
+                  Console.WriteLine(top + " TOP after pop");
+                  Console.WriteLine("[{0}]", string.Join(", ", array3));
+
+                  PUSH(ref add, ref Stacksize, ref top, ref array3);                    // push parced value and size of stack to push method
+                  Console.WriteLine(top + " Top PUsh after Popp");
+                  Console.WriteLine("[{0}]", string.Join(", ", array3));
+
+
+                  PEEK(ref top, ref array3);
+                  Console.WriteLine(top + " Top after peek");
+                  Console.WriteLine("[{0}]", string.Join(", ", array3));  
+                 */
+
+
+
 
             Console.ReadLine();
         }
