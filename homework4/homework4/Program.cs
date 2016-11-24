@@ -10,28 +10,6 @@ namespace homework4
     {
 
   
-
-        //static int add = 0;
-
-        //*******************************************************//
-        // push method;
-        //*******************************************************//
-        public static void PUSH(int add, int Stacksize)
-        {
-
-            int top = 0;
-            int[] array3 = new int[Stacksize];
-            if (top != Stacksize)
-            {
-                array3[top] = add;
-                top++;
-            }
-
-            Console.WriteLine("[{0}]", string.Join(", ", array3));
-            Console.WriteLine(top);
-        }
-
-
 //*******************************************************//
 // swap method;
 //*******************************************************//
@@ -53,6 +31,77 @@ public static void SWAP(ref int a, ref int b)
                 Console.WriteLine("Try again..");
                  }
             }
+
+
+         //*******************************************************//
+        // push method;
+        //*******************************************************//
+        public static void PUSH(ref int add, ref int Stacksize1, ref int top, ref int[] arrayT)
+        {
+
+            if (top != Stacksize1)
+            {
+                arrayT[top] = add;
+                top++;
+            }
+            Console.WriteLine(top);
+        }
+        //*******************************************************//
+        // EMPTY;
+        //*******************************************************//
+
+        public bool IsEmpty(ref int top)
+        {
+
+           if (top == 0)
+            {
+                Console.WriteLine("stack is empty");
+                
+            }
+            return true;
+        }
+        //*******************************************************//
+        // is FULL;
+        //*******************************************************//
+
+        public bool IsFull(ref int StackSize, ref int top)
+        {
+
+            if (top > StackSize)
+            {
+                Console.WriteLine("stack is full");
+            }
+            return true;
+        }
+
+
+        //*******************************************************//
+        // pop method;
+        //*******************************************************//
+        public static void POP(ref int toPop, ref int Stacksize2, ref int top, ref int [] arrayP)
+        {
+
+            if (top > 0)
+            {
+                arrayP[top] = toPop;
+                top--;
+            }
+          
+        }
+
+        //*******************************************************//
+        // peek method;
+        //*******************************************************//
+        public static void PEEK(ref int toPeek, ref int Stacksize2, ref int top, ref int[] arrayP)
+        {
+
+            if (top > 0)
+            {
+                arrayP[top] = toPeek;
+                
+            }
+
+        }
 
 
 
@@ -119,25 +168,31 @@ public static void SWAP(ref int a, ref int b)
 
             int Stacksize = 0;
             int add = 0;
+            int top = 0;
+            int toPop = 0;
+            int toPeek = 0;
+
+
 
 
 
             Console.WriteLine("Enter the size of an stack");
             ParceD(ref Stacksize);                  // parce size of stack
             int[] array3 = new int[Stacksize];      // define stack
-            Console.WriteLine("[{0}]", string.Join(", ", array3));
 
+
+            Console.WriteLine("[{0}]", string.Join(", ", array3));
             Console.WriteLine("Enter what you want to add"); 
             ParceD(ref add);                        //parce value which needs to be added
             Console.WriteLine(add);
-            PUSH(add,Stacksize);                    // push parced value and size of stack to push method
- 
+            PUSH(ref add,ref Stacksize, ref top, ref array3);                    // push parced value and size of stack to push method
+            
 
 
+            Console.WriteLine("[{0}]", string.Join(", ", array3));
+            Console.WriteLine(top);
 
-
-
-
+                        
             Console.ReadLine();
         }
     }
