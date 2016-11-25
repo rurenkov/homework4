@@ -129,6 +129,15 @@ public static void SWAP(ref int a, ref int b)
             }
         }
 
+        public bool IsFullQ(ref int free)
+        {
+
+            if (free <=0)
+            {
+                Console.WriteLine("QUEUE is full");
+            }
+            return true;
+        }
 
 
         static void Main(string[] args)
@@ -179,43 +188,64 @@ public static void SWAP(ref int a, ref int b)
             Console.WriteLine("*******stack************");
 
             //*******************************************************//
-            // STACKcc
+            // CIrcular Q
             //*******************************************************//
 
             
             int Buffsize = 0;
-            //int add = 0;
-           // int top = 0;
             int put = 0;
             int head = 0;
-           // int tail = 0;
+            int tail = 0;
             
             Console.WriteLine("Enter the size of an stack");
             ParceD(ref Buffsize);                  // parce size of stack
             int[] buffer = new int[Buffsize];      // define stack
             Console.WriteLine("[{0}]", string.Join(", ", buffer));
-
-            
-
-            for (int i=0; i<Buffsize; i++)
-            {
-                
-                Console.WriteLine("Enter what you want to add \n");
-                ParceD(ref put);                        //parce value which needs to be added
-                
-                ENQUEUE(ref put, ref Buffsize, ref head, ref buffer);
-                Console.WriteLine("[{0}]", string.Join(", ", buffer));
-            }
-
-            Console.WriteLine("[{0}]", string.Join(", ", buffer));
+            int free = Buffsize;
 
 
+            while (free >= 0)
 
-            //*************************************************************
 
-            //     Console.WriteLine("************************");
-            //   Console.WriteLine("*******Circular Queue************");
+                    {
+                        Console.WriteLine("To add value press :1, to delete value press :2, to exit press: 3 \n");
+                        int choise = 0;
+                        ParceD(ref choise);
+                        switch (choise)
+                        {
+                         case 1:
+                       if (free > 0)
+                        {
+                            Console.WriteLine("Enter what you want to add \n");
+                            ParceD(ref put);                        //parce value which needs to be added
 
+                            ENQUEUE(ref put, ref Buffsize, ref head, ref buffer);
+                            Console.WriteLine("[{0}]", string.Join(", ", buffer));
+                            free = Buffsize - head;
+                            Console.WriteLine("free__" + free);
+                        }
+                        
+                        
+                        else if (free == 0)
+                        {
+                            Console.WriteLine("QUEUE is full. Try to remove one element");
+                            Console.WriteLine("[{0}]", string.Join(", ", buffer));
+                        }
+                        
+                        break;
+
+                            case 2:
+
+                                Console.WriteLine("deleting # " + tail);
+                                DEQUEUE(ref tail, ref Buffsize, ref buffer);
+                                free++;
+                                Console.WriteLine("[{0}]", string.Join(", ", buffer));
+                                Console.WriteLine("tail__" + tail);
+                                break;
+                        }
+                    
+                }
+           
 
             //*********Debug Writes************************************
             /*      
