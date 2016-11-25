@@ -135,7 +135,10 @@ public static void SWAP(ref int a, ref int b)
             }
         }
 
-        public bool IsFullQ(ref int free)
+        //*******************************************************//
+        // IS FULLQ method;
+        //*******************************************************//
+        public static bool IsFullQ(int free)
         {
 
             if (free <=0)
@@ -144,6 +147,19 @@ public static void SWAP(ref int a, ref int b)
             }
             return true;
         }
+        //*******************************************************//
+        // IS EMPTY method;
+        //*******************************************************//
+        public static bool IsEMPTYQ(int free, int Buffsize)
+        {
+
+            if (free == Buffsize)
+            {
+                Console.WriteLine("QUEUE is empty");
+            }
+            return true;
+        }
+
 
 
         static void Main(string[] args)
@@ -207,19 +223,18 @@ public static void SWAP(ref int a, ref int b)
             ParceD(ref Buffsize);                  // parce size of stack
             int[] buffer = new int[Buffsize];      // define stack
             Console.WriteLine("[{0}]", string.Join(", ", buffer));
+
             int free = Buffsize;
 
 
             while (free >= 0)
-
-
                     {
                         Console.WriteLine("To add value press :1, to delete value press :2, to exit press: 3 \n");
                         int choise = 0;
                         ParceD(ref choise);
-                        switch (choise)
+                  switch (choise)
                         {
-                         case 1:
+                  case 1:
                        if (free > 0)
                         {
                             Console.WriteLine("Enter what you want to add \n");
@@ -231,23 +246,22 @@ public static void SWAP(ref int a, ref int b)
                             Console.WriteLine("free__" + free);
                         }
                         
-                        
-                        else if (free == 0)
-                        {
-                            Console.WriteLine("QUEUE is full. Try to remove one element");
-                            Console.WriteLine("[{0}]", string.Join(", ", buffer));
+                        else if (IsFullQ(free))
+                       {
                         }
-                        
                         break;
 
-                            case 2:
+                  case 2:
 
                                 Console.WriteLine("deleting # " + tail);
                                 DEQUEUE(ref tail, ref Buffsize, ref buffer);
                                 free++;
                                 Console.WriteLine("[{0}]", string.Join(", ", buffer));
                                 Console.WriteLine("tail__" + tail);
-                                break;
+                                Console.WriteLine("free__" + free);
+
+
+                        break;
                         }
                     
                 }
