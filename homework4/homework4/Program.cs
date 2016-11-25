@@ -88,12 +88,13 @@ public static void SWAP(ref int a, ref int b)
         //*******************************************************//
         // peek method;
         //*******************************************************//
-        public static void PEEK(ref int top, ref int[] arrayP)
+        //need to fix
+        public static void PEEK(ref int top)
         {
 
             if (top > 0)
             {
-                arrayP[top-1]= arrayP[top - 1];
+                top--;
             }
 
         }
