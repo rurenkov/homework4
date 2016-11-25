@@ -127,6 +127,12 @@ public static void SWAP(ref int a, ref int b)
                 buffer[tail] = 0;
                 tail++;
             }
+            else if (tail == Buffsize)
+            {
+                tail = 0;
+                buffer[tail] = 0;
+                tail++;
+            }
         }
 
         public bool IsFullQ(ref int free)
