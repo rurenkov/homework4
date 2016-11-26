@@ -225,8 +225,8 @@ public static void SWAP(ref int a, ref int b)
             int[] buffer = new int[Buffsize];      // define stack
             Console.WriteLine("[{0}]", string.Join(", ", buffer));
 
-            int free = Buffsize;
-
+            //int free = Buffsize;
+            int free = Buffsize - head;
 
             while (free >= 0)
                     {
@@ -243,8 +243,9 @@ public static void SWAP(ref int a, ref int b)
 
                             ENQUEUE(ref put, ref Buffsize, ref head, ref buffer);
                             Console.WriteLine("[{0}]", string.Join(", ", buffer));
-                            free = Buffsize - head;
+                            free--;
                             Console.WriteLine("free__" + free);
+                            Console.WriteLine("tail__" + tail);
                         }
                         
                         else if (IsFullQ(free))
@@ -253,16 +254,22 @@ public static void SWAP(ref int a, ref int b)
                         break;
 
                   case 2:
+                        if (free < Buffsize)
+                        {
 
-                                Console.WriteLine("deleting # " + tail);
-                                DEQUEUE(ref tail, ref Buffsize, ref buffer);
-                                free++;
-                                Console.WriteLine("[{0}]", string.Join(", ", buffer));
-                                Console.WriteLine("tail__" + tail);
-                                Console.WriteLine("free__" + free);
+                            Console.WriteLine("deleting # " + tail);
+                            DEQUEUE(ref tail, ref Buffsize, ref buffer);
+                            free++;
+                            Console.WriteLine("[{0}]", string.Join(", ", buffer));
+                            Console.WriteLine("tail__" + tail);
+                            Console.WriteLine("free__" + free);
+                        }
+                        else if (IsEMPTYQ(free, Buffsize))
+                        {
+                        }
 
-
-                        break;
+                            break;
+                        
                         }
                     
                 }
