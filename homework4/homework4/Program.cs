@@ -233,10 +233,10 @@ public static void SWAP(ref int a, ref int b)
                         Console.WriteLine("To add value press :1, to delete value press :2, to exit press: 3 \n");
                         int choise = 0;
                         ParceD(ref choise);
-                  switch (choise)
-                        {
-                  case 1:
-                       if (free > 0)
+                switch (choise)
+                {
+                    case 1:
+                        if (free > 0)
                         {
                             Console.WriteLine("Enter what you want to add \n");
                             ParceD(ref put);                        //parce value which needs to be added
@@ -247,13 +247,13 @@ public static void SWAP(ref int a, ref int b)
                             Console.WriteLine("free__" + free);
                             Console.WriteLine("tail__" + tail);
                         }
-                        
+
                         else if (IsFullQ(free))
-                       {
+                        {
                         }
                         break;
 
-                  case 2:
+                    case 2:
                         if (free < Buffsize)
                         {
 
@@ -268,11 +268,9 @@ public static void SWAP(ref int a, ref int b)
                         {
                         }
 
-                            break;
-                        
+                        break;
+                    }
                         }
-                    
-                }
            
 
             //*********Debug Writes************************************
